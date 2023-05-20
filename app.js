@@ -14,6 +14,7 @@ const mongoose = require("mongoose");
 // let workItems = [];
 const dotenv = require("dotenv");
 dotenv.config();
+mongoose.set("strictQuery", true);
 var url = process.env.mongoURL;
 mongoose.connect(url);
 
