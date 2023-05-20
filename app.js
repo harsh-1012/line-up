@@ -12,7 +12,9 @@ app.set('view engine', 'ejs');
 const mongoose = require("mongoose");
 // let items = ["Buy Food","Cook Food","Eat Food"];
 // let workItems = [];
-mongoose.connect("mongodb+srv://admin-harsh:AWS837155@cluster0.xoqf80d.mongodb.net/todolistDB");
+const dotenv = require("dotenv");
+dotenv.config();
+mongoose.connect(process.env.mongoURL);
 
 const itemsSchema = {
     name : String
