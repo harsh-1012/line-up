@@ -10,13 +10,12 @@ app.set('view engine', 'ejs');
 // const date = require(__dirname + "/date.js");
 
 const mongoose = require("mongoose");
-// let items = ["Buy Food","Cook Food","Eat Food"];
-// let workItems = [];
-const dotenv = require("dotenv");
-dotenv.config();
+
+require("dotenv").config();
+
 mongoose.set("strictQuery", true);
 var url = process.env.mongoURL;
-mongoose.connect(url);
+mongoose.connect(""+url);
 
 const itemsSchema = {
     name : String
