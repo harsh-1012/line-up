@@ -14,7 +14,8 @@ const mongoose = require("mongoose");
 // let workItems = [];
 const dotenv = require("dotenv");
 dotenv.config();
-mongoose.connect(""+process.env.mongoURL);
+var url = process.env.mongoURL;
+mongoose.connect(url);
 
 const itemsSchema = {
     name : String
