@@ -13,7 +13,9 @@ const mongoose = require("mongoose");
 
 require("dotenv").config();
 
-mongoose.connect(process.env.mongoURL);
+mongoose.connect("mongodb+srv://admin-harsh:"+process.env.mongoPass+"@cluster0.xoqf80d.mongodb.net/todolistDB",{
+    useNewUrlParser:true
+});
 
 const itemsSchema = {
     name : String
