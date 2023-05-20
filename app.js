@@ -13,9 +13,7 @@ const mongoose = require("mongoose");
 
 require("dotenv").config();
 
-mongoose.set("strictQuery", true);
-var url = process.env.mongoURL;
-mongoose.connect(""+url);
+mongoose.connect(process.env.mongoURL);
 
 const itemsSchema = {
     name : String
