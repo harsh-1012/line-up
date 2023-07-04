@@ -1,4 +1,4 @@
-<%- include("header") -%>
+<%- include("partials/header"); -%>
 
    <div class="leftpane">
        <div class="box leftbox" id="heading" data-bs-theme="dark">
@@ -33,7 +33,7 @@
        <div class="box">
 
           <%    if(newListItems.length==0){   %>
-                     <form action="/entertainment/ent" method="get" class="entertainment d-flex">
+                     <form action="/entertainment/ent/" method="get" class="entertainment d-flex">
                          <button class="btn btn-outline-warning" type="submit">Entertainment</button>
                      </form>
           <%    }  %>
@@ -55,4 +55,4 @@
               </form>
        </div>
    </div>
-<%- include("footer") -%>
+<%- include("partials/footer"); -%>

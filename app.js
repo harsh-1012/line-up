@@ -70,7 +70,7 @@ app.get("/:customeListName",function(req,res){
 });
 
 app.get("/entertainment/ent",function(req,res){
-    res.render("entertainment");
+    res.render("ent");
 });
 
 app.post("/add",function(req,res){
