@@ -13,32 +13,22 @@ const mongoose = require("mongoose");
 
 require("dotenv").config();
 
-mongoose.connect("mongodb+srv://admin-harsh:"+process.env.mongoPass+"@cluster0.xoqf80d.mongodb.net/todolistDB",{
-    useNewUrlParser:true
-});
+// mongoose.connect("mongodb+srv://admin-harsh:"+process.env.mongoPass+"@cluster0.xoqf80d.mongodb.net/todolistDB",{
+//     useNewUrlParser:true
+// });
 
-const itemsSchema = {
+mongoose.connect("mongodb://0.0.0.0:27017/todolistDB");
+
+const itemsSchema = new mongoose.Schema({
     name : String
-};
+});
 
 const Item = mongoose.model("Item", itemsSchema);
 
-const item1 = new Item({
-    name : "Welcome to your todoList"
-});
-const item2 = new Item({
-    name : "Hit + button to add item"
-});
-const item3 = new Item({
-    name : "Hit check box to cut down item"
-});
-
-const defaultItems = [item1,item2,item3];
-
-const listSchema = {
+const listSchema = new mongoose.Schema({
     name : String,
     items : [itemsSchema]
-};
+});
 
 const List = mongoose.model("List",listSchema);
 
@@ -46,47 +36,75 @@ app.get("/",function(req,res){
     // let day = date.getDate();
     Item.find({})
     .then(function(data){
-        if(data.length == 0){
-            Item.insertMany([item1,item2,item3])
-                .then(function(){
-                    console.log("Inserted into database");
-                })
-                .catch(function(err){
-                    console.log(err);
-                });
-            res.redirect("/");
-        }else{
-            res.render("list", {listTitle : "Today" , newListItems : data});
-        }
+        List.find({})
+            .then(function(lists){
+                res.render("list", {listTitle : "Today" , newListItems : data,listnames:lists});
+            });
     });
-    
+});
+
+app.get("/delete/:customeListName",function(req,res){
+    List.findOneAndDelete({name:req.params.customeListName})
+        .then(function(data){
+            console.log(data);
+        });
+    res.redirect("/");
 });
 
 //dynamic url handler
 //acces the url using "Express Route Parameters"
 app.get("/:customeListName",function(req,res){
-    const customeListName = _.capitalize(req.params.customeListName);
+    const customeListName = req.params.customeListName;
 
     List.findOne({name:customeListName})
         .then(function(result){
-            if(result != null){
-                //already exists print the result
-                res.render("list",{listTitle:result.name,newListItems:result.items});
-            }else{
-                //create new
-                const list = new List({
-                    name : customeListName,
-                    items : defaultItems
+            //already exists print the result
+            List.find({})
+                .then(function(lists){
+                    res.render("list",{listTitle:result.name,newListItems:result.items,listnames:lists});
                 });
-                list.save();
-                res.redirect("/"+customeListName);
-            }
         })
         .catch(function(err){
             console.log(err);
         });
 });
 
+app.get("/entertainment/ent",function(req,res){
+    res.render("entertainment");
+});
+
+app.post("/add",function(req,res){
+    const coustomListName = _.capitalize(req.body.newlist);
+    //two cases can be there either name can exits or not
+    //if name exists
+    List.findOne({name:coustomListName})
+        .then(function(lists){ 
+            if(lists != null){      //means already exist so dont add just redirect
+                res.redirect("/"+coustomListName);
+            }
+            else{  //first add this list name into List model then redirect
+                const list = new List({
+                    name:coustomListName,
+                    items:[]
+                });
+                list.save();
+                res.redirect("/"+coustomListName);
+            }
+        });
+});
+
+app.post("/search",function(req,res){
+    const customListName = _.capitalize(req.body.searchinput);
+
+    List.find({name:customListName})
+        .then(function(lists){
+            console.log(lists);
+            Item.find({})
+                .then(function(data){
+                    res.render("list",{listTitle:"Today",newListItems:data,listnames:lists});
+                });
+        });
+});
 
 app.post("/",function(req,res){
     const itemName = req.body.newItem;

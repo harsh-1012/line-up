@@ -1,10 +1,43 @@
 <%- include("header") -%>
 
+   <div class="leftpane">
+       <div class="box leftbox" id="heading" data-bs-theme="dark">
+
+          <form class="d-flex addform searchform" role="search" action="/search" method="post" data-bs-theme="dark">
+              <input class="form-control me-2" name="searchinput" type="search" placeholder="Search" aria-label="Search" autocomplete="off">
+              <button class="btn btn-outline-success searchButton btn-sm" type="submit">Go</button>
+          </form>
+
+
+       <%     for(let i=0;i<listnames.length;i++){   %>
+
+              <div class="card" style="margin-bottom: 3px;">
+                     <div class="card-body" style="padding: 7px;">
+                            <h5><a href="/<%=listnames[i].name%>" style="text-decoration:none;color: rgb(223, 223, 223);"><%=listnames[i].name%></a> <a href="/delete/<%=listnames[i].name%>"><i class="bi bi-file-minus" style="font-size: 15px;color:#dddddd;float: right;margin-top:4px;"></i></a></h5>
+                     </div>
+              </div>
+       <%     }   %>
+              
+         <form class="d-flex addform" role="search" action="/add" method="post" data-bs-theme="dark">
+              <input class="form-control me-2" name="newlist" type="search" placeholder="Add List" aria-label="Search" autocomplete="off">
+              <button class="btn btn-outline-success searchButton btn-sm" type="submit">Add</button>
+         </form>
+       </div>
+   </div>
+
+   <div class="rightpane">
        <div class="box" id="heading">
-              <h1><%= listTitle %></h1>
+              <h1><a href="/" style="text-decoration: none;color:#fff;"><%= listTitle %></a></h1>
        </div>
 
        <div class="box">
+
+          <%    if(newListItems.length==0){   %>
+                     <form action="/entertainment/ent" method="get" class="entertainment d-flex">
+                         <button class="btn btn-outline-warning" type="submit">Entertainment</button>
+                     </form>
+          <%    }  %>
+
               <%   for(var i=0;i<newListItems.length;i++){  %>
                      <form action="/delete" method="post">
 
@@ -21,4 +54,5 @@
                      <button type="submit" name="list" value=<%= listTitle %>>+</button>
               </form>
        </div>
+   </div>
 <%- include("footer") -%>

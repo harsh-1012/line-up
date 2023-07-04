@@ -1,8 +1,11 @@
-html {
-  background-color: #E4E9FD;
+/* html {
   background-image: -webkit-linear-gradient(65deg, #38373b 50%, #E4E9FD 50%);
   min-height: 1000px;
   font-family: 'helvetica neue';
+} */
+
+body{
+  background-color: rgb(58, 58, 58);
 }
 
 h1 {
@@ -13,13 +16,17 @@ h1 {
 .box {
   max-width: 400px;
   margin: 50px auto;
-  background: white;
-  border-radius: 5px;
+  background: #A4BC92;
+  border-radius: 15px;
   box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
 }
 
+#body{
+  min-height: calc(100vh - 6.7rem - 6.7rem);
+}
+
 #heading {
-  background-color: #38373b;
+  background-color: #525252;
   text-align: center;
 }
 
@@ -28,6 +35,7 @@ h1 {
   display: flex;
   align-items: center;
   border-bottom: 1px solid #F1F1F1;
+  margin-right: 4px;
 }
 
 .item:last-child {
@@ -47,8 +55,8 @@ p {
   margin: 0;
   padding: 20px;
   font-size: 20px;
-  font-weight: 200;
-  color: #00204a;
+  font-weight: 400;
+  color: #000000;
 }
 
 form.item {
@@ -81,7 +89,7 @@ input[type="text"] {
 
 input[type="text"]:focus {
   outline: none;
-  box-shadow: inset 0 -3px 0 0 #A683E3;
+  box-shadow: inset 0 -3px 0 0 #000000;
 }
 
 ::placeholder {
@@ -90,9 +98,56 @@ input[type="text"]:focus {
 }
 
 footer {
-  color: white;
-  color: rgb(255, 255, 255);
+  color: rgb(219, 219, 219);
   text-align: center;
-  padding-top: 50px;
+  padding-top: 10%;
 }
-/* rgba(0, 0, 0, 0.5); */
+
+.leftpane{
+  display: inline-flex;
+  margin-left: 2%;
+}
+.leftbox{
+  margin-top: 50%;
+  width: 14rem;
+  padding: 10%;
+}
+h5{
+  color:rgb(219, 219, 219) ;
+}
+
+.rightpane{
+   float: right;
+   margin-right: 25%;
+}
+
+.searchButton{
+  border-color: azure;
+  color: azure;
+  height: 1px;
+  --bs-btn-padding-y: .5rem; 
+  --bs-btn-padding-x: .5rem; 
+  --bs-btn-font-size: .75rem;
+}
+.form-control:focus {
+  border-color: #ebe8e8;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 255, 255, 0.6);
+}
+
+.addform{
+  margin-top: 35px;
+}
+.searchform{
+  position: absolute;
+  top:10px;
+  left:20px;
+}
+
+.entertainment{
+  position: absolute;
+  left:5%;
+  top: 60%;
+}
+.entertainment button{
+  width: 100%;
+}
