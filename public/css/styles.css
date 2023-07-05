@@ -125,9 +125,9 @@ h5{
   border-color: azure;
   color: azure;
   height: 1px;
-  --bs-btn-padding-y: .5rem; 
+  --bs-btn-padding-y: .25rem; 
   --bs-btn-padding-x: .5rem; 
-  --bs-btn-font-size: .75rem;
+  --bs-btn-font-size: 1rem;
 }
 .form-control:focus {
   border-color: #ebe8e8;
@@ -145,8 +145,8 @@ h5{
 
 .entertainment{
   position: absolute;
-  left:5%;
-  top: 60%;
+  left: 5.5%;
+  top: 7%;
 }
 .entertainment button{
   width: 100%;
@@ -157,4 +157,114 @@ h5{
   color: #fff;
   font-size: 250px;
   margin-right: 220px;
+}
+
+/* music website styles */
+body{
+  overflow-x: hidden;
+}
+.main{
+  min-height: 100vh;
+  background-color: rgb(15, 21, 24);
+  border-radius: 100px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  justify-content: center;
+  text-align: center;
+}
+
+.logo{
+  position: absolute;
+  left: 44.5%;
+}
+
+.row{
+  margin-top: 100px;
+  margin-left: 40px;
+}
+
+.musicImg{
+  border-radius: 50%;
+  width: 100%;
+  height: 280px;
+  transition:all 0.4s linear;
+}
+.musicImg:hover{
+  box-shadow: 50px 50px 50px 50px rgba(0,0, 0, 0.4);
+}
+
+.musicName{
+  margin-top: 30px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+audio:hover, audio:focus, audio:active
+{
+-webkit-box-shadow: 15px 15px 20px rgba(0,0, 0, 0.4);
+-moz-box-shadow: 15px 15px 20px rgba(0,0, 0, 0.4);
+box-shadow: 15px 15px 20px rgba(0,0, 0, 0.4);
+-webkit-transform: scale(1.05);
+-moz-transform: scale(1.05);
+transform: scale(1.05);
+}
+audio
+{
+-webkit-transition:all 0.5s linear;
+-moz-transition:all 0.5s linear;
+-o-transition:all 0.5s linear;
+transition:all 0.5s linear;
+border-radius:50px;
+background-color: black;
+margin-left: 2%;
+}
+
+.postform{
+  width: 40%;
+  text-align: left;
+  padding-top: 100px;
+}
+.postform button{
+  margin-top: 50px;
+  width: 100%;
+}
+.form-group{
+  margin-bottom: 10px;
+}
+
+.row{
+  margin-top: 50px;
+}
+.dropdown{
+  margin-left: 80%;
+  padding-top: 15px;
+}
+.composebtn{
+  margin-top: 20px;
+  width: 100%;
+}
+.homebtn{
+  position: absolute;
+  right: 47%;
+  bottom: 15%;
+}
+.logout{
+  position: absolute;
+  right: 3%;
+  top: 9%;
+}
+.calendar{
+  text-decoration: none;
+  color: #494b99;
+  /* position: relative;
+  left: 560%; */
+}
+.navbar{
+  border-radius: 25px;
+  width: 90%;
+  margin-left:5%;
+}
+.starlite{
+  font-size:x-large;
+  position: relative;
+  right:25%;
 }

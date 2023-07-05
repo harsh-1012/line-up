@@ -2,12 +2,7 @@
 
    <div class="leftpane">
        <div class="box leftbox" id="heading" data-bs-theme="dark">
-
-          <form class="d-flex addform searchform" role="search" action="/search" method="post" data-bs-theme="dark">
-              <input class="form-control me-2" name="searchinput" type="search" placeholder="Search" aria-label="Search" autocomplete="off">
-              <button class="btn btn-outline-success searchButton btn-sm" type="submit">Go</button>
-          </form>
-
+              <a href="/logout" type="button" class="btn btn-outline-warning logout">LogOut</a>
 
        <%     for(let i=0;i<listnames.length;i++){   %>
 
@@ -22,12 +17,16 @@
               <input class="form-control me-2" name="newlist" type="search" placeholder="Add List" aria-label="Search" autocomplete="off">
               <button class="btn btn-outline-success searchButton btn-sm" type="submit">Add</button>
          </form>
+         <form class="d-flex addform" role="search" action="/search" method="post" data-bs-theme="dark">
+              <input class="form-control me-2" name="searchinput" type="search" placeholder="Search" aria-label="Search" autocomplete="off">
+              <button class="btn btn-outline-info searchButton btn-sm" type="submit">Go</button>
+          </form>
        </div>
    </div>
 
    <div class="rightpane">
        <div class="box" id="heading">
-              <h1><a href="/" style="text-decoration: none;color:#fff;"><%= listTitle %></a></h1>
+              <h1><a href="/main" style="text-decoration: none;color:#fff;"><%= listTitle %></a></h1>
        </div>
 
        <div class="box">
@@ -44,6 +43,7 @@
                             <div class="item">
                                    <input type="checkbox" name="checkbox" value="<%= newListItems[i]._id %>" onchange="this.form.submit()">
                                    <p><%= newListItems[i].name %></p>
+                                   <a href="/calendar/<%=newListItems[i].name%>" class="calendar"><i class="bi bi-calendar2-plus"></i></a>
                             </div>
                             <input type="hidden" name="listName" value="<%=listTitle%>"></input>
                      </form>

@@ -1,0 +1,16 @@
+<%- include("partials/header"); -%>
+
+<div class="container" style="width: 20%;text-align: center; margin-top: 20px;">
+    <h1>REGISTER</h1>
+    <form action="/register" method="post">
+        <div class="form-group" style="margin-top: 25px;">
+            <input type="email" id="email" placeholder="Email" class="form-control" name="username" autocomplete="off" required>
+        </div>
+        <div class="form-group" style="margin-top: 25px;">
+            <input type="password" id="password" placeholder="Password" class="form-control" name="password" autocomplete="off" required>
+        </div>
+        <button type="submit" class="btn searchButton btn-outline-info composebtn">Register</button>
+    </form>
+</div>
+
+<%- include("partials/footer") -%>

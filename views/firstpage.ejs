@@ -1,0 +1,15 @@
+<%- include("partials/header"); -%>
+
+<div class="box" id="heading">
+    <h1><a href="/" style="text-decoration: none;color:#fff;">Today</a></h1>
+</div>
+
+<div class="box">
+    <form class="item" action="/login" method="get">
+        <input type="text" name="newItem" placeholder="New Item" autocomplete="off">
+        <button type="submit" name="list" value="">+</button>
+    </form>
+</div>
+<a href="/login" type="button" class="btn btn-dark btn-lg homebtn">LOGIN</a>
+
+<%- include("partials/footer") -%>

@@ -1,0 +1,21 @@
+<%- include("partials/headermusic.ejs"); -%>
+
+<div class="container postform">
+    <form action="/m/music/compose" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="validationDefault01" class="form-label">Name</label>
+            <input class="form-control" type="search" name="name" id="validationDefault01" required>
+        </div>
+        <div class="form-group">
+            <label for="validationDefault03" class="form-label">Upload Image</label>
+            <input class="form-control" type="file" multiple accept="image/png,image/jpg,image/jpeg" name="image" id="validationDefault03" required>
+        </div>
+        <div class="form-group">
+            <label for="validationDefault02" class="form-label">Upload Audio</label>
+            <input class="form-control" type="file" accept="audio/*" name="video" id="validationDefault02" required>
+        </div>
+        <button type="submit" class="btn btn-outline-info">Publish</button>
+    </form>
+</div>
+
+<%- include("partials/footermusic.ejs"); -%>

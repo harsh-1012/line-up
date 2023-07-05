@@ -1,0 +1,22 @@
+<%- include("partials/headermusic.ejs"); -%>
+
+<div class="row">
+    <%  for(let i=0;i<list.length;i++){  %>
+
+        <div class="col col-md-6 col-lg-4 col-sm-12 col-12">
+            <div class="card-body" style="margin-right: 20%;margin-bottom: 8%; display: inline-block;">
+                <img src="http://res.cloudinary.com/dpuzwl8pf/image/upload/v1687703081/<%=list[i].cloudinary_image_id%>.jpg" class="musicImg" alt="...">
+
+                <h5 class="musicName">
+                    <%=list[i].name%>
+                    <a href="/m/music/delete/<%= list[i]._id %>"><i class="bi bi-file-minus" style="font-size: 15px;color:#dddddd;"></i></a>
+                </h5>
+                    
+                <audio controls>
+                    <source src="http://res.cloudinary.com/dpuzwl8pf/video/upload/v1687703081/<%=list[i].cloudinary_video_id%>.mp3" type="audio/mp3">
+                </audio>
+            </div>
+        </div>
+    <%  }  %>
+    </div>
+<%- include("partials/footermusic.ejs"); -%>
