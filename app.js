@@ -40,9 +40,7 @@ cloudinary.config({
 });
 
 
-mongoose.connect("mongodb+srv://admin-harsh:"+process.env.mongoPass,{
-    useNewUrlParser:true
-});
+mongoose.connect("mongodb+srv://admin-harsh:"+process.env.mongoPass);
 
 // mongoose.connect("mongodb://0.0.0.0:27017/todolistDB");
 
