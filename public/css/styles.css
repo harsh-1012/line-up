@@ -268,3 +268,27 @@ margin-left: 2%;
   position: relative;
   right:25%;
 }
+.ent{
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (max-width:550px){
+  .rightpane{
+    margin-right:11%;
+  }
+  .leftpane{
+    margin-left: 25%;
+  }
+  .entlogo{
+    margin: 0;
+    padding: 0;
+    font-size: 150px;
+    margin-right: 10px;
+  }
+  footer{
+    position:absolute;
+    bottom: 0px;
+    margin-left:30%;
+  }
+}
